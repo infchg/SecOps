@@ -18,6 +18,7 @@ Several SNMP OIDs are rarelly documented but able to track Palo Alto traffic in 
 
 while a specific website received from 500
 
+This lead us evolve from large operations into Site Reliability Engineering (service oriented, automated, scaled)
 
 ### details
 
@@ -26,12 +27,17 @@ This work was developed 2015-18 and tracks Palo Alto firewalls closely, it can f
 It let us track FW every few seconds, it is rarely documented by the manufacturer (apart succinct SNMP MIB files)  
 
 ```bash
-((date +%s.%2N && snmpbulkget -mALL  -Os -c $PAS  -v 2c -Cr1 -Oqvt  $FW  enterprises.25461.2.1.2.1.19.8.10 enterprises.25461.2.1.2.1.19.8.14 enterprises.25461.2.1.2.1.19.8.18 enterprises.25461.2.1.2.1.19.8.30   enterprises.25461.2.1.2.1.19.8.31 enterprises.25461.2.1.2.1.19.11.7 1.3.6.1.4.1.25461.2.1.2.3.4  SysUptime && date +%s.%2N  ) | perl -pe 'chop; s/$/ /g' && echo ) >> $bas/pa-$FW.txt #tim sessdeny icmp udp synmaxthre activred nonsynunmatch activeTCP  upti time
+((date +%s.%2N && snmpbulkget -mALL  -Os -c $PAS  -v 2c -Cr1 -Oqvt  $FW \
+enterprises.25461.2.1.2.1.19.8.10 enterprises.25461.2.1.2.1.19.8.14 \ 
+enterprises.25461.2.1.2.1.19.8.18 enterprises.25461.2.1.2.1.19.8.30  \
+enterprises.25461.2.1.2.1.19.8.31 enterprises.25461.2.1.2.1.19.11.7 \
+1.3.6.1.4.1.25461.2.1.2.3.4  SysUptime && date +%s.%2N  ) | perl -pe 'chop; s/$/ /g' && echo ) >> $bas/pa-$FW.txt
+#tim sessdeny icmp udp synmaxthre activred nonsynunmatch activeTCP  upti time
 ```
 
-I identified 10 Palo Alto Counters (Figure 1 rainbow colors) useful for investigating attacks. Some counters are in the Palo Alto CLI too, but SNMP let us monitor FW every few secs and keep the 10 key values in logs .. Matlab etc :
+We identified 10 Palo Alto Counters (Figure 1 rainbow colors) useful for investigating attacks. Some counters are in the Palo Alto CLI too, but SNMP let us monitor FW every few secs and keep the 10 key values in logs .. Matlab etc :
  
-Fig1. ![identified 8 Palo Alto Counters that can be monitored and sent to logs (e.g. in Matlab)](18n-counters2.PNG)
+Fig1. ![identified 8 Palo Alto Counters that can be monitored and sent to logs (e.g. in Matlab)](doc/18n-counters2.PNG)
 
 The number of TCP drops due to non-syn/non-session is especially important. This splunk example filters the snmp-gathered data for just a pair of HA Firewalls. The plot let us identify peaks visually, at those moments our infrastructure or providers suffered short glitches ( + delays in  eBGP).  
 .  
@@ -69,21 +75,20 @@ zooming out the time and values during the peaks & attacks
 
 ### Notes
 
-a
-:
+ 
 
 splunk
 : ![splunk image](doc/1113-fw.png)
 
 standard
-: [standard PA image[
+: [standard PA image](doc/pa-standard.png)
+
 
 [splunk]: #notes "image below"
 
 [standard]: #notes "image below"  
 
-b
-:
+ 
 
 
 ### PA standards
@@ -99,7 +104,10 @@ while  CLI command to extract Flow counters with a DoS aspect:
 > show counter global filter category flow aspect dos
 
 
- 
+- [x] service level oriented
+- [x] automated
+- [x] scalable
+
 ### OLDER <2015
 
 #### Beluga Information-Change coding language  
