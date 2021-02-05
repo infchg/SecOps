@@ -22,7 +22,7 @@ fws=( 10.41.17.5 10.41.17.6  10.12.61.5   10.12.61.6  10.4.61.5 10.4.61.6 10.6.6
 
 You can identify Attacks too: peaks that are not jumping by 6000 connections in a minute bur rather jump abruptly over 20000 non-syn tcps is short time. Figure 3, of close monitoring of Palo Alto counters. The same figure let us identify precisely other moments of short disruptions (smaller peaks) due to own or near-own infrastructures (for instance caused by eBGP renegotiation after one of the links failed).
  
-Fig3. ![demo: nonsessions PAloAlto counter during attacks](nonsess-sep17-12hrs.png) 
+Fig3. ![fw Attacks + others ](26s-fw.png)
 
 Fig4. ![provide](ISP-dos-alerts.png) 
 
@@ -39,6 +39,7 @@ This monitoring works independently to minimize risks , a server nearby pulls 10
 
 ### others details
 
-![fw Attacks + others ](26s-fw.png)
+zooming out the time and values during the peaks & attacks
+![demo: nonsessions PAloAlto counter during attacks](nonsess-sep17-12hrs.png) 
 
  
