@@ -49,13 +49,14 @@ while  CLI command to extract Flow counters with a DoS aspect:
 
 
  
-## OLDER
+### OLDER <2015
 
-### Beluga Information-Change coding language  
+#### Beluga Information-Change coding language  
  
-using 2015 graphical flows coded in beluga graphical language.
-
+graphical flows coded in beluga graphical language. 
 examples querying Google App Enginge infchg site are shown in beluga-
 
 currently the application was renamed in the Google Compute preview App
+the google cloud URLs  are no longer reacheable, Since the Beluga service was moved to other cloud servers, 
+  - backlog:  the urls to be updated with the correct servers apps on GC & AWS
 
