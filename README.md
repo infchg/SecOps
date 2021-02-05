@@ -21,6 +21,10 @@ while a specific website received from 500
 
 ### Notes
 
+our queries
+:
+
+
 splunk
 : ![splunk image](doc/1113-fw.png)
 
@@ -31,8 +35,23 @@ summary
 
 [f2]: www.abc.com "abc"
 
+### PA standards
+
+Since PAN-OS v7.0.0, the following counters could also be accessed through Palo Alto Networks private MIBs:
  
-## Beluga Information-Change coding language  
+- panGlobalCountersDOSCounters
+- panGlobalCountersDropCounters
+- panGlobalCountersIPFragmentationCounters
+- panGlobalCountersTCPState
+ 
+while  CLI command to extract Flow counters with a DoS aspect:
+> show counter global filter category flow aspect dos
+
+
+ 
+## OLDER
+
+### Beluga Information-Change coding language  
  
 using 2015 graphical flows coded in beluga graphical language.
 
