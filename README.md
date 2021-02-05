@@ -1,8 +1,9 @@
 # Palo Alto Watch
 
  
-**Palo Alto Watch** is a series of  infos and scripts allowing detail Investigations in [Splunk] or Elastic,
-complementing the standard PA FireWall charts that already offer confortable traffic [summary].
+**Palo Alto Watch** is a series of  infos and scripts for deep FireWall Investigations in [Splunk] or Elastic,
+
+this brings many new details to the existing charts of the [standard] Palo Alto tool.
 
 
  
@@ -21,19 +22,18 @@ while a specific website received from 500
 
 ### Notes
 
-our queries
+a
 :
-
 
 splunk
 : ![splunk image](doc/1113-fw.png)
 
-summary
+standard
 : [standard PA image[
 
-[f1]: cnn.com "a a"
+[splunk]: #notes "image below"
 
-[f2]: www.abc.com "abc"
+[standard]: www.abc.com "abc"
 
 ### PA standards
 
