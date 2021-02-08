@@ -14,9 +14,7 @@ We might have Palo Alto parameters, charts, logs, and tools but would be ideal t
 Since old PAN-OS v7 few firewall counters could be accessed through Palo Alto Networks private MIBs.
 A handful of those SNMP OIDs are very valuable, but only succinctly documented in Palo Alto MIBs.
 
-The simple script below let you track live key Firewall counters.
- The Figure 0 shosw how the scripts fits between the points 1 and 2 of this architecture .
-
+The simple script below let you track live key Firewall counters. This demos saves in a file.
 ```bash
 ((date +%s.%2N && snmpbulkget -mALL  -Os -c $PAS  -v 2c -Cr1 -Oqvt  $FW \
 enterprises.25461.2.1.2.1.19.8.10 enterprises.25461.2.1.2.1.19.8.14 \ 
@@ -26,12 +24,18 @@ enterprises.25461.2.1.2.1.19.8.31 enterprises.25461.2.1.2.1.19.11.7 \
 #tim sessdeny icmp udp synmaxthre activred nonsynunmatch activeTCP  upti time
 ```
 
-Fig0 !(Fig0 PaloAltoWatch Architecture)[PaloAltoWatch.PNG]
+## Needs
 
-Calling the script in crontabs or loops let us pull Firewall data every few  seconds, this let you locate the precise time of issues or attacks.
+You can run the script on a small linux shell, in any box able to reach the FW management interface.  
+(between the points 1 and 2 of this architecture in Fig.0).
+
+Fig0 ![Fig0 PaloAltoWatch Architecture](PaloAltoWatch.PNG)
+
+Verified in bash CentOS  it should run well in Ubuntu, RHEL, Debian, even windows' GITshell ...
 
 ## Examples
 
+Calling the script in crontabs or loops let us pull Firewall data every few  seconds, this let you locate the precise time of issues or attacks.
 
 We identified 10 Palo Alto Counters (Figure 1 rainbow colors) useful for investigating attacks. Some counters are in the Palo Alto CLI too, but SNMP let us monitor FW every few secs and keep the 10 key values in logs .. Matlab etc :
  
