@@ -1,30 +1,21 @@
 # Palo Alto Watch
 
  
-**Palo Alto Watch** is a series of  infos and scripts for deep FireWall Investigations in [Splunk] or Elastic,
+**Palo Alto Watch** has a series of infos and scripts to help FireWall forensics investigations in [Splunk] or Elastic.
+These infos bring new details to  the [standard] Palo Alto tools and charts.
 
-this brings many new details to the existing charts of the [standard] Palo Alto tool.
+## Why 
 
+During forensics, we need to investigate specific details and times on the Palo Alto parameters.
+We might have PA charts, logs, and tools but would be ideal to research in our own elastic or splunk.
 
- 
+## How
 
-When you need to investigate specific details of what is going on the PA parameters help.
+Since old PAN-OS v7 few firewall counters could be accessed through Palo Alto Networks private MIBs.
+A handfull of those SNMP OIDs were very valuable, but only succinctly documented in Palo Alto MIBs.
 
-Several SNMP OIDs are rarelly documented but able to track Palo Alto traffic in detail, 
-
-  simple scripts can collect among many FWs and feed logs to Elastic or Splunk for plots.
-
- This splunk query shows peaks in TCP
-
-while a specific website received from 500
-
-This lead us evolve from large operations into Site Reliability Engineering (service oriented, automated, scaled)
-
-### details
-
-This work was developed 2015-18 and tracks Palo Alto firewalls closely, it can feed logs to elastic, splunk, …. 
-
-It let us track FW every few seconds, it is rarely documented by the manufacturer (apart succinct SNMP MIB files)  
+The simple script below let you track live key Firewall counters.
+ The Figure 0 shosw how the scripts fits between the points 1 and 2 of this architecture .
 
 ```bash
 ((date +%s.%2N && snmpbulkget -mALL  -Os -c $PAS  -v 2c -Cr1 -Oqvt  $FW \
@@ -35,6 +26,13 @@ enterprises.25461.2.1.2.1.19.8.31 enterprises.25461.2.1.2.1.19.11.7 \
 #tim sessdeny icmp udp synmaxthre activred nonsynunmatch activeTCP  upti time
 ```
 
+Fig0 !(Fig0 PaloAltoWatch Architecture)[PaloAltoWatch.PNG]
+
+Calling the script in crontabs or loops let us pull Firewall data every few  seconds, this let you locate the precise time of issues or attacks.
+
+## Examples
+
+
 We identified 10 Palo Alto Counters (Figure 1 rainbow colors) useful for investigating attacks. Some counters are in the Palo Alto CLI too, but SNMP let us monitor FW every few secs and keep the 10 key values in logs .. Matlab etc :
  
 Fig1. ![identified 8 Palo Alto Counters that can be monitored and sent to logs (e.g. in Matlab)](doc/18n-counters2.PNG)
@@ -44,11 +42,14 @@ The number of TCP drops due to non-syn/non-session is especially important. This
 Fig2.  ![demo of TCP peaks detected](doc/1113-fw.png)
 Usually the Palo Alto NonSYN NonSession drops is a small percentage ~2% of regular traffic, and it follows the typical daily usage curve. These regular nonSYN are due to glitches randomly distributed among users, caused by individual user browsers, their devices, or local user isp disconnections. 
 
-The FW monitoring scales up well using simple bash scripts. That way I could follow 10 firewalls around America, Asia, Europe. Usually tracked those per minute (20sec in high business). These examples had millions hits to many brands and apps, hence the high counter variance. The method to track PA can also help normal traffic of few webs.
+ 
+## Scalable
+ 
+The FW monitoring scales up well using simple bash scripts collect among many FWs and feed logs to Elastic or Splunk for plots. We could follow 10 firewalls around America, Asia, Europe. Usually tracked those per minute (20sec in high business). These examples had millions hits to many brands and apps, hence the high counter variance. The method to track PA can also help normal traffic of few webs.
 ```bash
 fws=( 10.41.17.5 10.41.17.6  10.12.61.5   10.12.61.6  10.4.61.5 10.4.61.6 10.6.61.5  10.6.61.6 pwallx-1.domain  pwallx-2.domain   )  #remote pull by FW cluster
 ```
-
+## Attacks
 You can identify Attacks too: peaks that are not jumping by 6000 connections in a minute bur rather jump abruptly over 20000 non-syn tcps is short time. Figure 3, of close monitoring of Palo Alto counters. The same figure let us identify precisely other moments of short disruptions (smaller peaks) due to own or near-own infrastructures (for instance caused by eBGP renegotiation after one of the links failed).
  
 Fig3. ![fw Attacks + others ](doc/26s-fw.png)
@@ -72,6 +73,9 @@ zooming out the time and values during the peaks & attacks
 ![demo: nonsessions PAloAlto counter during attacks](doc/nonsess-sep17-12hrs.png) 
 
  
+## Tests
+This work was developed 2015-19 tracking large Palo Alto firewalls closely, it can feed logs to elastic, splunk, …. 
+This lead us evolve from large operations into Site Reliability Engineering (service oriented, automated, scaled)
 
 ### Notes
 
