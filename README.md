@@ -14,7 +14,7 @@ We might have Palo Alto parameters, charts, logs, and tools but would be ideal t
 Since old PAN-OS v7 few firewall counters could be accessed through Palo Alto Networks private MIBs.
 A handful of those SNMP OIDs are very valuable, but only succinctly documented in Palo Alto MIBs.
 
-The simple script below let you track live key Firewall counters. This demos saves in a file.
+The simple script below let you track live key Firewall counters. 
 ```bash
 ((date +%s.%2N && snmpbulkget -mALL  -Os -c $PAS  -v 2c -Cr1 -Oqvt  $FW \
 enterprises.25461.2.1.2.1.19.8.10 enterprises.25461.2.1.2.1.19.8.14 \ 
@@ -23,6 +23,11 @@ enterprises.25461.2.1.2.1.19.8.31 enterprises.25461.2.1.2.1.19.11.7 \
 1.3.6.1.4.1.25461.2.1.2.3.4  SysUptime && date +%s.%2N  ) | perl -pe 'chop; s/$/ /g' && echo ) >> $bas/pa-$FW.txt
 #tim sessdeny icmp udp synmaxthre activred nonsynunmatch activeTCP  upti time
 ```
+This demo saves the parameters to a data file. The structure is:  
+
+     timestamp sessdeny icmp udp synmaxthre activred nonsynunmatch activeTCP  FWuptime timestamp
+     
+(the timestamp an uptimes a couple of symmetry-checks for site reliability)
 
 ## Needs
 
@@ -35,7 +40,7 @@ Verified in bash CentOS  it should run well in Ubuntu, RHEL, Debian, even window
 
 ## Examples
 
-Calling the script in crontabs or loops let us pull Firewall data every few  seconds, this let you locate the precise time of issues or attacks.
+Calling the script in crontabs or loops let us pull Firewall data every few  seconds, this let you find the precise time of issues or attacks.
 
 We identified 10 Palo Alto Counters (Figure 1 rainbow colors) useful for investigating attacks. Some counters are in the Palo Alto CLI too, but SNMP let us monitor FW every few secs and keep the 10 key values in logs .. Matlab etc :
  
@@ -56,7 +61,7 @@ fws=( 10.41.17.5 10.41.17.6  10.12.61.5   10.12.61.6  10.4.61.5 10.4.61.6 10.6.6
 for FW in $fws;
 ```
 ## Attacks
-You can identify Attacks too: peaks that are not jumping by 6000 connections in a minute bur rather jump abruptly over 20000 non-syn tcps is short time. Figure 3, of close monitoring of Palo Alto counters. The same figure let us identify precisely other moments of short disruptions (smaller peaks) due to own or near-own infrastructures (for instance caused by eBGP renegotiation after one of the links failed).
+Let us see an attack example in Fig3. These are peaks that are not jumping by 6000 connections in a minute but rather jump abruptly over 20000 non-syn tcps is short time. Figure 3, of close monitoring of Palo Alto counters. The same figure let us detect precisely other moments of short disruptions (smaller peaks) due to own or near-own infrastructures (for instance caused by eBGP renegotiation after another link failed).
  
 Fig3. ![fw Attacks + others ](doc/26s-fw.png)
 
@@ -122,10 +127,11 @@ while  CLI command to extract Flow counters with a DoS aspect:
 
 #### Beluga Information-Change coding language  
  
-graphical flows coded in beluga graphical language. 
-examples querying Google App Enginge infchg site are shown in beluga-
+Previous graphical flows were coded in beluga graphical language. 
+We gave few examples querying Google App Enginge infchg site in beluga. 
 
-currently the application was renamed in the Google Compute preview App
-the google cloud URLs  are no longer reacheable, Since the Beluga service was moved to other cloud servers, 
+Later the application was renamed in the Google Compute preview App. 
+The google cloud URLs  are no longer reacheable, Since the Beluga service was moved to other cloud servers, 
+
   - backlog:  the urls to be updated with the correct servers apps on GC & AWS
 
