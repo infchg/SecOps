@@ -6,13 +6,13 @@ These infos bring new details to  the [standard] Palo Alto tools and charts.
 
 ## Why 
 
-During forensics, we need to investigate specific details and times on the Palo Alto parameters.
-We might have PA charts, logs, and tools but would be ideal to research in our own elastic or splunk.
+During forensics, we need to investigate specific times of deviations counted by the Firewalls.
+We might have Palo Alto parameters, charts, logs, and tools but would be ideal to research in our own elastic or splunk.
 
 ## How
 
 Since old PAN-OS v7 few firewall counters could be accessed through Palo Alto Networks private MIBs.
-A handfull of those SNMP OIDs were very valuable, but only succinctly documented in Palo Alto MIBs.
+A handful of those SNMP OIDs are very valuable, but only succinctly documented in Palo Alto MIBs.
 
 The simple script below let you track live key Firewall counters.
  The Figure 0 shosw how the scripts fits between the points 1 and 2 of this architecture .
@@ -47,7 +47,9 @@ Usually the Palo Alto NonSYN NonSession drops is a small percentage ~2% of regul
  
 The FW monitoring scales up well using simple bash scripts collect among many FWs and feed logs to Elastic or Splunk for plots. We could follow 10 firewalls around America, Asia, Europe. Usually tracked those per minute (20sec in high business). These examples had millions hits to many brands and apps, hence the high counter variance. The method to track PA can also help normal traffic of few webs.
 ```bash
-fws=( 10.41.17.5 10.41.17.6  10.12.61.5   10.12.61.6  10.4.61.5 10.4.61.6 10.6.61.5  10.6.61.6 pwallx-1.domain  pwallx-2.domain   )  #remote pull by FW cluster
+fws=( 10.41.17.5 10.41.17.6  10.12.61.5   10.12.61.6  10.4.61.5 10.4.61.6 10.6.61.5  10.6.61.6 pwallx-1.domain  pwallx-2.domain   )
+#remote pull by FW cluster just need to loop $FW among the values in the $fws list
+for FW in $fws;
 ```
 ## Attacks
 You can identify Attacks too: peaks that are not jumping by 6000 connections in a minute bur rather jump abruptly over 20000 non-syn tcps is short time. Figure 3, of close monitoring of Palo Alto counters. The same figure let us identify precisely other moments of short disruptions (smaller peaks) due to own or near-own infrastructures (for instance caused by eBGP renegotiation after one of the links failed).
