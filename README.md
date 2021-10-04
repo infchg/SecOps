@@ -9,6 +9,8 @@ These infos bring new details to  the [standard] Palo Alto tools and charts.
 During forensics, we need to investigate specific times of deviations counted by the Firewalls.
 We might have Palo Alto parameters, charts, logs, and tools but would be ideal to research in our own elastic or splunk.
 
+This has also a place to add and discuss latest SecOps improvements https://github.com/infchg/palo-alto-watch/discussions/1
+
 ## How
 
 Since old PAN-OS v7 few firewall counters could be accessed through Palo Alto Networks private MIBs.
