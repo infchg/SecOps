@@ -1,5 +1,6 @@
+# SecOps
 
-moved former https://github.com/infchg/palo-alto-watch to https://github.com/infchg/SecOps to include contributions on DevSecOps and Unmanned 
+This https://github.com/infchg/SecOps   includes new contributions on DevSecOps and Unmanned and CISA worksin addition to moved former https://github.com/infchg/palo-alto-watch as below:
 
 
 # Palo Alto Watch
