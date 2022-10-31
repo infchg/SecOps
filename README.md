@@ -1,5 +1,7 @@
 # SecOps
 
+Agile and DevOps principles to improve CyberSecurity Operations.
+
 This https://github.com/infchg/SecOps   includes new contributions on DevSecOps and Unmanned and CISA worksin addition to moved former https://github.com/infchg/palo-alto-watch as below:
 
 
