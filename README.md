@@ -144,3 +144,10 @@ The google cloud URLs  are no longer reacheable, Since the Beluga service was mo
 
   - backlog:  the urls to be updated with the correct servers apps on GC & AWS
 
+
+<i class="bi bi-meter">ll</i>
+
+#### META 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
