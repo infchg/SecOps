@@ -146,6 +146,7 @@ The google cloud URLs  are no longer reacheable, Since the Beluga service was mo
 
 
 <i class="bi bi-meter">ll</i>
+<i class="bi-binoculars-fill">cx</i<
 
 #### META 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
