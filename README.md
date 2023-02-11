@@ -1,15 +1,34 @@
 # SecOps
 
-Agile and DevOps principles to improve CyberSecurity Operations.
+Agile and DevOps principles to improve CyberSecurity Operations.  https://github.com/infchg/SecOps  
 
-This https://github.com/infchg/SecOps   includes new contributions on DevSecOps and Unmanned and CISA worksin addition to moved former https://github.com/infchg/palo-alto-watch as below:
+##  new contributions from DevSecOps and Unmanned and CISA SabSa CISSP frameworks ModernAgile
+
+       (expanded and moved from former https://github.com/infchg/ palo-alto-watch )
 
 
-# Palo Alto Watch
+## >🌡📈 Measure >💡✋Act > 🥝🍀Value > 🌐🌏 Guide >
+
+steps|to|🌡📈Collect| 💡✋Alert | 🥝🍀Serve | 🌐 Guideline 
+---|---|---|---|---|---
+❌Gap  || unrealistic manual check | hard & slow manual verif| Need summary to add value, BI | Teams in Silos, double efforts❌
+✋Acted || automated collection | automated alerts | prepared Py Notebooks  | Seeded a guide, transparent💡 
+✅Value|| Teams spot diffs easily |Teams query, build upon| notebooks as calculate aid | space for team Cooperation🍀    
+🌏Share safely || shared [data](#data) Online | shared alerts Online | Share key Findings | gradually edit🌐  gain consensus  
+✋Action, for Teams:|| Internal use, keep adding | Broader-teams add feedback | got external feedback  | Lead to expand  goals & teams
+
+                   ✋💡alert             (Symmetry & Icons by InfChg CC-BY)
+                 /                  \ 
+         🌡📈📌collect​	  value✅🍀      (inspired on Modern-Agile clock-wise)
+                \                     /   
+                  🌐🌏guide    
+
+
+# Firewall Watch
 
  
-**Palo Alto Watch** has a series of infos and scripts to help FireWall forensics investigations in [Splunk] or Elastic.
-These infos bring new details to  the [standard] Palo Alto tools and charts.
+**FW Watch** collects MIBs and scripts to analyze FireWall for forensics investigations in [Splunk] or Elastic.
+These infos bring new details to the [standard] Palo Alto tools and charts.
 
 ## Why 
 
