@@ -6,8 +6,9 @@ Agile and DevOps principles to improve CyberSecurity Operations.  https://github
 
        (expanded and moved from former https://github.com/infchg/ palo-alto-watch )
 
+###  🌐🌏 CERT/Intell >🌡📈 SOC/Oper > 💡✋SOAR/Response > 🥝🍀CSIRT/Restore Value 
 
-## >🌡📈 Measure >💡✋Act > 🥝🍀Value > 🌐🌏 Guide >
+Applying Modern-Agile to improve CERT SOC CSIRT  https://github.com/infchg/SecOps
 
 steps|to|🌡📈Collect| 💡✋Alert | 🥝🍀Serve | 🌐 Guideline 
 ---|---|---|---|---|---
