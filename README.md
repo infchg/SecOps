@@ -2,6 +2,11 @@
 
 Agile and DevOps principles to improve CyberSecurity Operations.  https://github.com/infchg/SecOps  
 
+Latest:
+
+- Propose modern (yaml) handling of Keys in Authentication Authorization against GCP Keycloak Okta@ Github.com/InfChg/SecOps 2022 https://github.com/infchg/SecOps/blob/master/KeyCloack-yaml.md
+
+
 ##  new contributions from DevSecOps and Unmanned and CISA SabSa CISSP frameworks ModernAgile
 
        (expanded and moved from former https://github.com/infchg/ palo-alto-watch )
